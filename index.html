@@ -11,14 +11,19 @@
         <h1>Giphy project</h1>
     </header>
   <main class="main">
-    <label for=""></label>
-    <textarea id="first_Word" class="textarea has-fixed-size" placeholder="e.g. Hello world">fat</textarea>
-    <textarea id="second_Word" class="textarea has-fixed-size" placeholder="e.g. Hello world">cat</textarea>
-    <input id="saveButton" class="button" type="submit" value="Submit input">
-    <div class="container">
+    <form class="container is-flex is-justify-content-center	">
+        <input class="m-2 is-justify-content-center" type="text" placeholder="First Word" id="first_Word">
+        <label for="bothWords">...Rhymes With...</label>
+        <input class="m-2 is-justify-content-center" type="text" placeholder="Second Word" id="second_Word">
+       
+    </form>
+    <input  class="button" type="submit" value="Get GIF">
+    <button id="getGif" class="button is-black">Get GIF</button>
+    <button class="is-flex">Search</button>  
+    
     
       
-    </div>
+    
   </main>
   <footer>
 
