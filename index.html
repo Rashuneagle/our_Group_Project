@@ -5,28 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WordsAPI and Giphy</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-    <header>
-        <h1>Giphy project</h1>
+  <body class=" has-text-light">
+    <header class="is-flex is-justify-content-center">
+        <h1 class="has-text-white"><strong>Gif Randomizer</strong></h1>
     </header>
-  <main class="main">
-    <form class="container is-flex is-justify-content-center	">
+  <main class="main mt-6">
+    <form class="container is-flex is-justify-content-center">
         <input class="m-2 is-justify-content-center" type="text" placeholder="First Word" id="first_Word">
         <label for="bothWords">...Rhymes With...</label>
         <input class="m-2 is-justify-content-center" type="text" placeholder="Second Word" id="second_Word">
-       
+        
     </form>
-    
+    <section class="is-flex is-justify-content-center mt-4">
     <button id="getGif" class="button is-black">Get GIF</button>
     <button id="rhymingWords" class="is-flex">Search</button>  
+    <div></div>
+    </section>
+    
+
     
     
       
     
   </main>
   <footer>
-
+    
   </footer>
     <script src="script.js"></script>
   </body>
