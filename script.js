@@ -28,10 +28,28 @@ getGif.addEventListener("click", function(){
       // Handle the data from the API response
       console.log("API response:", data);
       // Perform any further actions with the data
+
+      if(data != null){
+
+        var gifURL = data.data[0].embed_url
+        console.log(gifURL);
+       
+
+    } else{
+        console.error("no gif found");
+    }
+
     })
     .catch(error => {
       // Handle any errors that occur during the fetch operation
       console.error("There was a problem with the fetch operation:", error);
     });
+
+
+    
+  
 });
+
+
+
 
