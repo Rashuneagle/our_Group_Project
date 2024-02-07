@@ -3,14 +3,10 @@ var input1 = document.getElementById("first_Word").value;
 var input2 = document.getElementById("second_Word").value;
 var giphyAPI = "&api_key=GWaYUXf3AxnPvjVePxBncnHTj7wbHDIK";
 var giphyLimit = "&limit=5"
-var saveButton = document.getElementById("saveButton");
+var getGif = document.getElementById("getGif");
 
 
-
-
-
-
-saveButton.addEventListener("click", function(){
+getGif.addEventListener("click", function(){
      input1 = document.getElementById("first_Word").value;
      input2 = document.getElementById("second_Word").value;
 
