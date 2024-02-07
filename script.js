@@ -32,7 +32,7 @@ getGif.addEventListener("click", function(){
       if(data != null){
 
         var gifURL = data.data[0].embed_url
-        console.log(gifURL);
+        console.log("GIF =" + gifURL);
        
 
     } else{
@@ -50,11 +50,9 @@ getGif.addEventListener("click", function(){
   
 });
 
-<<<<<<< HEAD
 
 
 
-=======
 function getWords() {
 
 input1 = document.getElementById("first_Word").value;
@@ -86,4 +84,3 @@ var wordsAPICall = wordsDomain;
     })
 }
 };
->>>>>>> 5baa45afc032f20b5302908a5cd9d24845459697
