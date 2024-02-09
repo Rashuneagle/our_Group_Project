@@ -3,7 +3,7 @@ var giphyAPI = "&api_key=GWaYUXf3AxnPvjVePxBncnHTj7wbHDIK";
 var giphyLimit = "&limit=5"
 var getGif = document.getElementById("getGif");
 var searchBtn = document.getElementById("rhymingWords");
-
+var close = document.getElementById('close');
 searchBtn.addEventListener("click", getWords);
 
 getGif.addEventListener("click", function(){
@@ -31,25 +31,38 @@ getGif.addEventListener("click", function(){
 
       if(data != null){
 
-        var gifURL = data.data[0].embed_url
-        console.log("GIF =" + gifURL);
-       
+        var gifURL = data.data[0].embed_url;
+        displayGIF(gifURL);
 
     } else{
         console.error("no gif found");
-    }
+    };
 
     })
     .catch(error => {
       // Handle any errors that occur during the fetch operation
       console.error("There was a problem with the fetch operation:", error);
-    });
-
-
+    });  
     
+   
   
 });
 
+function displayGIF(gifURL){
+    console.log("GIF =" + gifURL);
+    let image = document.getElementById("image")
+    image.src = gifURL;
+    var modalURL = document.createElement('div');
+   var modal = document.getElementById('modal1');
+   modal.classList.add('is-active');
+
+};
+
+close.addEventListener('click', function(){
+    var modal = document.getElementById('modal1');
+    modal.classList.remove('is-active');
+});
+ 
 
 
 
