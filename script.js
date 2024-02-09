@@ -45,77 +45,47 @@ getGif.addEventListener("click", function(){
       console.error("There was a problem with the fetch operation:", error);
     });
 
-
-    
   
 });
 
-
-
-
-function getWords() {
+async function getWords() {
 
 input1 = document.getElementById("first_Word").value;
 
-var wordsDomain = "https://wordsapiv1.p.rapidapi.com/words/"+input1+"/rhymes";
+const wordsAPICall = {
+  async: true,
+  crossDomain: true,
+  url: 'https://wordsapiv1.p.rapidapi.com/words/'+input1+'/rhymes',
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
+    'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+  }
+};
 
-var wordsAPICall = wordsDomain;
-    console.log(wordsAPICall)
-
-    if (input1.length > 2) {
-    fetch(wordsAPICall, {
-        method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
-		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-	}
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-
-    .then(data => { 
-      if (data = !null) {
-        displayWords(data.data);
-      }
-
-      console.log("API response:", data);
-    })
-    .catch(error => {
-      console.error("There was a problem with the fetch operation:", error);
-    })
+$.ajax(wordsAPICall).done(function (response) {
+  displayWords(response.rhymes.all);
+});
 
 }
-};
 
 function displayWords(data) {
 
+var wordsElement = document.getElementById("words");
 
-let text = document.getElementById("words").textContent;
-displayWords.classList.add;
-var wordsIndex = 0
+for (let i = 0; i < data.length; i++) {
 
-  var currentWords = words[wordsIndex]
-  console.log(currentWords)
-  var wordsElement = document.createElement("ul")
-  console.log(wordsElement)
-  wordsElement.textContent = currentWords.Words
-  console.log(wordsElement)
-  displayWords.appendChild(wordsElement)
+var listElement = document.createElement("li");
+var linkElement = document.createElement("a");
+linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
+linkElement.textContent = data[i];
+listElement.appendChild(linkElement);
+wordsElement.appendChild(listElement);
 }
 
-function accessWords() {
-  // Get the ul element by its id
-  const ul = document.getElementById('words');
+}
 
-  // Get the child li elements of the ul
-  const listItems = ul.getElementsByTagName('li');
-
-  // Loop through each li element and access its content
-  for (let i = 0; i < listItems.length; i++) {
-    console.log(`Item ${i + 1}: ${listItems[i].textContent}`);
-  }
+function setInput2 (word) {
+  var input2 = document.getElementById("second_Word");
+  input2.value = word;
 }
