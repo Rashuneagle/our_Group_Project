@@ -76,11 +76,46 @@ var wordsAPICall = wordsDomain;
       }
       return response.json();
     })
-    .then(data => {
+
+    .then(data => { 
+      if (data = !null) {
+        displayWords(data.data);
+      }
+
       console.log("API response:", data);
     })
     .catch(error => {
       console.error("There was a problem with the fetch operation:", error);
     })
+
 }
 };
+
+function displayWords(data) {
+
+
+let text = document.getElementById("words").textContent;
+displayWords.classList.add;
+var wordsIndex = 0
+
+  var currentWords = words[wordsIndex]
+  console.log(currentWords)
+  var wordsElement = document.createElement("ul")
+  console.log(wordsElement)
+  wordsElement.textContent = currentWords.Words
+  console.log(wordsElement)
+  displayWords.appendChild(wordsElement)
+}
+
+function accessWords() {
+  // Get the ul element by its id
+  const ul = document.getElementById('words');
+
+  // Get the child li elements of the ul
+  const listItems = ul.getElementsByTagName('li');
+
+  // Loop through each li element and access its content
+  for (let i = 0; i < listItems.length; i++) {
+    console.log(`Item ${i + 1}: ${listItems[i].textContent}`);
+  }
+}
