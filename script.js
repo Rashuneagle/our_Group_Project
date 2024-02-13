@@ -147,7 +147,7 @@ linkElement.textContent = data[i];
 listElement.appendChild(linkElement);
 wordsElement.appendChild(listElement);
 }
-
+wordsElement.removeChild(listElement);
 }
 
 function setInput2 (word) {
