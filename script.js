@@ -111,7 +111,7 @@ close.addEventListener('click', function(){
 
  });
 
-
+ var wordsElement = document.getElementById("words");
 
 function getWords() {
 
@@ -128,16 +128,19 @@ const wordsAPICall = {
   }
 };
 
+
+
 $.ajax(wordsAPICall).done(function (response) {
+   $("#words").empty();
+  //  document.getElementById("words").innerHTML = "";
   displayWords(response.rhymes.all);
 });
 
 }
 
 function displayWords(data) {
-
-var wordsElement = document.getElementById("words");
-
+//  wordsElement.children = [];
+//  wordsElement.appendChild([]);
 for (let i = 0; i < data.length; i++) {
 
 var listElement = document.createElement("li");
@@ -154,3 +157,4 @@ function setInput2 (word) {
   var input2 = document.getElementById("second_Word");
   input2.value = word;
 }
+
