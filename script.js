@@ -149,6 +149,7 @@ linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
 linkElement.textContent = data[i];
 listElement.appendChild(linkElement);
 wordsElement.appendChild(listElement);
+/*wordsElement.appendChild(document.createElement("br"))*/
 }
 
 }
