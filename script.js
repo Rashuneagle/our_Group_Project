@@ -121,3 +121,4 @@ function setInput2 (word) {
   var input2 = document.getElementById("second_Word");
   input2.value = word;
 }
+
