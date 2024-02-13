@@ -141,7 +141,7 @@ $.ajax(wordsAPICall).done(function (response) {
 function displayWords(data) {
 //  wordsElement.children = [];
 //  wordsElement.appendChild([]);
-for (let i = 0; i < data.length; i++) {
+for (let i = 0; i < 20; i++) {
 
 var listElement = document.createElement("li");
 var linkElement = document.createElement("a");
@@ -149,6 +149,7 @@ linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
 linkElement.textContent = data[i];
 listElement.appendChild(linkElement);
 wordsElement.appendChild(listElement);
+/*wordsElement.appendChild(document.createElement("br"))*/
 }
 wordsElement.removeChild(listElement);
 }

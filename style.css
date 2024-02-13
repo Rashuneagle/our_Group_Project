@@ -9,3 +9,12 @@ html, body {
   .box{
     background-color: transparent;
   }
+
+  #words li {
+    margin-bottom: 50px;
+    /* display: block !important; */
+    /* width: 100%; */
+    line-break: loose;
+    margin-left: 30px;
+  }
+  
