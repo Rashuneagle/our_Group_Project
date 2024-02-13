@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body class=>
-    <header class=" columns is-flex is-justify-content-center">
-      <h1 class="column is-full has-text-centered has-text-white"><strong>Gif Randomizer</strong></h1>    
+  <body class= "is-family-monospace">
+    <div class="columns is-full">
+    <header class=" column is-flex is-justify-content-center">
+      <h1 class="column is-full has-text-centered has-text-whit is-size-1 is-family-monospace"><strong>Gif Randomizer</strong></h1>    
     </header>
+    </div>
   <main class="main mt-6">
     <form class="container is-flex is-justify-content-center">
+      <div class="">
         <input class="m-2 is-justify-content-center" type="text" placeholder="First Word" id="first_Word">
-        <label for="bothWords">...Rhymes With...</label>
+        <label for="bothWords is">...Rhymes With...</label>
         <input class="m-2 is-justify-content-center" type="text" placeholder="Second Word" id="second_Word">
-        
+      </div> 
     </form>
     <section class="is-flex is-justify-content-center is-flex-direction-row-reverse mt-4">
       <button id="getGif" class="button is-black ml-6">Get GIF</button>   
       <button id="rhymingWords" class="button is-black mr-6">Search</button>
-    <div id="search"></div>
     </section>
 
     <section>
