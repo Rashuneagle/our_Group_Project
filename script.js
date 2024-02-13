@@ -1,17 +1,18 @@
 var giphyDomain = "https://api.giphy.com/v1/gifs/search/?q="
 var giphyAPI = "&api_key=GWaYUXf3AxnPvjVePxBncnHTj7wbHDIK";
-var giphyLimit = "&limit=5"
+var giphyLimit = "5";
 var getGif = document.getElementById("getGif");
 var searchBtn = document.getElementById("rhymingWords");
-
+var close = document.getElementById('close');
 searchBtn.addEventListener("click", getWords);
+var gifIndex = 0;
 
 getGif.addEventListener("click", function(){
      input1 = document.getElementById("first_Word").value;
      input2 = document.getElementById("second_Word").value;
 
 
-    var giphyAPICall = giphyDomain+input1+'%20'+input2+giphyAPI+giphyLimit;
+    var giphyAPICall = giphyDomain+input1+'%20'+input2+giphyAPI+"&limit="+giphyLimit;
     console.log(giphyAPICall)
 
     // Make API call when the button is clicked
@@ -30,25 +31,56 @@ getGif.addEventListener("click", function(){
       // Perform any further actions with the data
 
       if(data != null){
-
-        var gifURL = data.data[0].embed_url
-        console.log("GIF =" + gifURL);
+        getGifUrl(data);
        
 
     } else{
         console.error("no gif found");
-    }
+    };
 
     })
     .catch(error => {
       // Handle any errors that occur during the fetch operation
       console.error("There was a problem with the fetch operation:", error);
-    });
-
+    });  
+    
+   
   
 });
 
-async function getWords() {
+function getGifUrl(data){
+   
+    var gifURL = data.data[gifIndex].embed_url;
+    displayGIF(gifURL);
+    gifIndex++;
+    console.log(`gifIndex = ${gifIndex}`);
+};
+
+
+function displayGIF(gifURL){
+    console.log("GIF =" + gifURL);
+    let image = document.getElementById("image")
+    image.src = gifURL;
+    var modalURL = document.createElement('div');
+    var modal = document.getElementById('modal1');
+    modal.classList.add('is-active');
+
+};
+
+close.addEventListener('click', function(){
+    var modal = document.getElementById('modal1');
+    modal.classList.remove('is-active');
+});
+
+
+ refresh.addEventListener('click', function(data){
+    getGifUrl(data);
+
+ });
+
+
+
+function getWords() {
 
 input1 = document.getElementById("first_Word").value;
 
