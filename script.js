@@ -84,30 +84,40 @@ function getWords() {
 
 input1 = document.getElementById("first_Word").value;
 
-var wordsDomain = "https://wordsapiv1.p.rapidapi.com/words/"+input1+"/rhymes";
-
-var wordsAPICall = wordsDomain;
-    console.log(wordsAPICall)
-
-    if (input1.length > 2) {
-    fetch(wordsAPICall, {
-        method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
-		'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-	}
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("API response:", data);
-    })
-    .catch(error => {
-      console.error("There was a problem with the fetch operation:", error);
-    })
-}
+const wordsAPICall = {
+  async: true,
+  crossDomain: true,
+  url: 'https://wordsapiv1.p.rapidapi.com/words/'+input1+'/rhymes',
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
+    'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+  }
 };
+
+$.ajax(wordsAPICall).done(function (response) {
+  displayWords(response.rhymes.all);
+});
+
+}
+
+function displayWords(data) {
+
+var wordsElement = document.getElementById("words");
+
+for (let i = 0; i < data.length; i++) {
+
+var listElement = document.createElement("li");
+var linkElement = document.createElement("a");
+linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
+linkElement.textContent = data[i];
+listElement.appendChild(linkElement);
+wordsElement.appendChild(listElement);
+}
+
+}
+
+function setInput2 (word) {
+  var input2 = document.getElementById("second_Word");
+  input2.value = word;
+}
