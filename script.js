@@ -151,7 +151,7 @@ listElement.appendChild(linkElement);
 wordsElement.appendChild(listElement);
 /*wordsElement.appendChild(document.createElement("br"))*/
 }
-
+wordsElement.removeChild(listElement);
 }
 
 function setInput2 (word) {
