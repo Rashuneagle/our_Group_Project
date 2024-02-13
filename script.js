@@ -1,6 +1,6 @@
 var giphyDomain = "https://api.giphy.com/v1/gifs/search/?q="
 var giphyAPI = "&api_key=GWaYUXf3AxnPvjVePxBncnHTj7wbHDIK";
-var giphyLimit = "5";
+var giphyLimit = "50";
 var getGif = document.getElementById("getGif");
 var searchBtn = document.getElementById("rhymingWords");
 var close = document.getElementById('close');
@@ -74,7 +74,40 @@ close.addEventListener('click', function(){
 
 
  refresh.addEventListener('click', function(data){
-    getGifUrl(data);
+    // getGifUrl(data);
+    var giphyAPICall = giphyDomain+input1+'%20'+input2+giphyAPI+"&limit="+giphyLimit;
+    console.log(giphyAPICall)
+
+
+
+    fetch(giphyAPICall)
+    .then(response => {
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      // Parse the response as JSON
+      return response.json();
+    })
+    .then(data => {
+      // Handle the data from the API response
+      console.log("API response:", data);
+      // Perform any further actions with the data
+
+      if(data != null){
+        getGifUrl(data);
+       
+
+    } else{
+        console.error("no gif found");
+    };
+
+    })
+    .catch(error => {
+      // Handle any errors that occur during the fetch operation
+      console.error("There was a problem with the fetch operation:", error);
+    });  
+    
 
  });
 
