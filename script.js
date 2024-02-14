@@ -32,6 +32,10 @@ getGif.addEventListener("click", function(){
 
       if(data != null){
         getGifUrl(data);
+        var modalText = document.getElementById("modalText");
+        console.log(input1);
+        console.log(input2);
+         modalText.innerHTML = input1 +" "+ input2;
        
 
     } else{
@@ -96,6 +100,7 @@ close.addEventListener('click', function(){
 
       if(data != null){
         getGifUrl(data);
+    
        
 
     } else{
@@ -113,49 +118,48 @@ close.addEventListener('click', function(){
 
  var wordsElement = document.getElementById("words");
 
-function getWords() {
 
-input1 = document.getElementById("first_Word").value;
+ function getWords() {
 
-const wordsAPICall = {
-  async: true,
-  crossDomain: true,
-  url: 'https://wordsapiv1.p.rapidapi.com/words/'+input1+'/rhymes',
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
-    'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
-  }
-};
-
-
-
-$.ajax(wordsAPICall).done(function (response) {
-   $("#words").empty();
-  //  document.getElementById("words").innerHTML = "";
-  displayWords(response.rhymes.all);
-});
-
-}
-
-function displayWords(data) {
-//  wordsElement.children = [];
-//  wordsElement.appendChild([]);
-for (let i = 0; i < 20; i++) {
-
-var listElement = document.createElement("li");
-var linkElement = document.createElement("a");
-linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
-linkElement.textContent = data[i];
-listElement.appendChild(linkElement);
-wordsElement.appendChild(listElement);
-/*wordsElement.appendChild(document.createElement("br"))*/
-}
-wordsElement.removeChild(listElement);
-}
+    input1 = document.getElementById("first_Word").value;
+    
+    const wordsAPICall = {
+      async: true,
+      crossDomain: true,
+      url: 'https://wordsapiv1.p.rapidapi.com/words/'+input1+'/rhymes',
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': 'a7b45f4a68msh02f6773f0d55528p134728jsn30004f353785',
+        'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
+      }
+    };
+    
+    
+    
+    $.ajax(wordsAPICall).done(function (response) {
+       $("#words").empty();
+      //  document.getElementById("words").innerHTML = "";
+      displayWords(response.rhymes.all);
+    });
+    
+    }
+    
+    function displayWords(data) {
+    //  wordsElement.children = [];
+    //  wordsElement.appendChild([]);
+    for (let i = 0; i < 20; i++) {
+    
+    var listElement = document.createElement("li");
+    var linkElement = document.createElement("a");
+    linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
+    linkElement.textContent = data[i];
+    listElement.appendChild(linkElement);
+    wordsElement.appendChild(listElement);
+    }
+    
+    }
 
 function setInput2 (word) {
   var input2 = document.getElementById("second_Word");
   input2.value = word;
 }
-
