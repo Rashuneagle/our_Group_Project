@@ -5,9 +5,7 @@
       padding: 0;
     }
 
-    .box {
-      background-color: transparent;
-    }
+   
 
     #words li {
       margin-bottom: 50px;
@@ -29,18 +27,7 @@
       margin-right: 270px;
     }
 
-    body.is-family-monospace {
-      font-family: 'Arial', sans-serif;
-    }
-
-    section.hero {
-      background-color: #3498db; 
-      color: #fff;
-    }
-
-    h1.title {
-      color: #e74c3c;
-    }
+    
 
     form.columns {
       background-color: #fff; 
