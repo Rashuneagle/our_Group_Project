@@ -1,31 +1,79 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
 
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
+    .box {
+      background-color: transparent;
+    }
 
-  .box{
-    background-color: transparent;
-  }
+    #words li {
+      margin-bottom: 50px;
+      /* display: block !important; */
+      /* width: 100%; */
+      line-break: loose;
+      margin-left: 30px;
+    }
 
-  #words li {
-    margin-bottom: 50px;
-    /* display: block !important; */
-    /* width: 100%; */
-    line-break: loose;
-    margin-left: 30px;
-  }
+    button {
+      margin-left: 10px;
+    }
 
-  #modalText{
-    color:white;
-    background-color: black;
-    font-size: 3rem;
-  }
+    #getGif {
+      margin-left: 270px;
+    }
 
-  .modal-background{
-    background-color: (10,10,10,1)
-  }
+    #rhymingWords {
+      margin-right: 270px;
+    }
+
+    body.is-family-monospace {
+      font-family: 'Arial', sans-serif;
+    }
+
+    section.hero {
+      background-color: #3498db; 
+      color: #fff;
+    }
+
+    h1.title {
+      color: #e74c3c;
+    }
+
+    form.columns {
+      background-color: #fff; 
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
   
+
+   
+    button.is-black {
+      background-color: #2ecc71;
+      color: #fff;
+    }
+
+    button.is-black:hover {
+      background-color: #27ae60; 
+    }
+
+    #modal1 {
+      background-color: rgba(0, 0, 0, 0.5); 
+    }
+
+    .modal-content {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      background-color: #333;
+      color: #fff; 
+      padding: 10px 0;
+      text-align: center;
+    }
