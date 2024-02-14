@@ -32,6 +32,10 @@ getGif.addEventListener("click", function(){
 
       if(data != null){
         getGifUrl(data);
+        var modalText = document.getElementById("modalText");
+        console.log(input1);
+        console.log(input2);
+         modalText.innerHTML = input1 +" "+ input2;
        
 
     } else{
@@ -96,6 +100,7 @@ close.addEventListener('click', function(){
 
       if(data != null){
         getGifUrl(data);
+    
        
 
     } else{
@@ -111,7 +116,7 @@ close.addEventListener('click', function(){
 
  });
 
- var wordsElement = document.getElementById("words");
+
 
 function getWords() {
 
@@ -128,20 +133,17 @@ const wordsAPICall = {
   }
 };
 
-
-
 $.ajax(wordsAPICall).done(function (response) {
-   $("#words").empty();
-  //  document.getElementById("words").innerHTML = "";
   displayWords(response.rhymes.all);
 });
 
 }
 
 function displayWords(data) {
-//  wordsElement.children = [];
-//  wordsElement.appendChild([]);
-for (let i = 0; i < 20; i++) {
+
+var wordsElement = document.getElementById("words");
+
+for (let i = 0; i < data.length; i++) {
 
 var listElement = document.createElement("li");
 var linkElement = document.createElement("a");
@@ -149,13 +151,11 @@ linkElement.href = "javascript:setInput2(\""+data[i]+"\");";
 linkElement.textContent = data[i];
 listElement.appendChild(linkElement);
 wordsElement.appendChild(listElement);
-/*wordsElement.appendChild(document.createElement("br"))*/
 }
-wordsElement.removeChild(listElement);
+
 }
 
 function setInput2 (word) {
   var input2 = document.getElementById("second_Word");
   input2.value = word;
 }
-

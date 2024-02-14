@@ -17,4 +17,15 @@ html, body {
     line-break: loose;
     margin-left: 30px;
   }
+
+  #modalText{
+    color:white;
+    background-color: black;
+    font-size: 3rem;
+  }
+
+  .modal-background{
+    background-color: (10,10,10,1)
+  }
+
   
